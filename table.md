@@ -1,5 +1,5 @@
 ## css-in-js 라이브러리 종류
-| Styled Components | ![Styled Components](./img/Styled_Components.png) |
+| Styled Components |xxxxxxxx |
 |-------------------|---------------------------------------------------|
 | JSS-React         | ![Styled Components](./img/jss.png)               |
 | glamorous         | ![Styled Components](./img/glamorous.png)         |
