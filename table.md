@@ -5,3 +5,11 @@
 | glamorous         | ![Styled Components](./img/glamorous.png)         |
 | Radium            | ![Styled Components](./img/radium.png)            |
 | Stylotron         | ![Styled Components](./img/styletron.png)         |
+
+
+
+|    구분    |          BEM          |          SMACSS          |          OOCSS      |  
+|:----------:|:---------------------:|:---------------------:|:---------------------:|
+| 네이밍 방법 |   '어떻게 보이는가'가 아니라 '어떤 목적인가' <br>에러 메시지를 띄우는 P 태그는 .red가 아닌, .error  |
+|   장점    |     option 생성     |  |
+|   단점    |     option 생성     |   |
