@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="ko">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>css metodologia</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../revealjs/dist/reset.css">
+		<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+		<link rel="stylesheet" href="../revealjs/dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<style>
+			.reveal code {
+
+			}
+			.reveal .hljs {
+				max-height: 300px;
+			}
+			.reveal ul small {
+				vertical-align: middle;
+			}
+			.reveal .x-small {
+				font-size: 0.4em;
+			}
+			.offscreen {
+				position: absolute !important;
+				height: 1px; width: 1px; 
+				overflow: hidden;
+				clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+				clip: rect(1px, 1px, 1px, 1px);
+			}
+			.flex-container {
+				display: flex;
+				flex: 1;
+			}
+			.flex-column {
+				width: 50%;
+			}
+			.itcss-diagram {
+				position: relative;
+			}
+			.itcss-key {
+				position: absolute;
+				width: 100%;
+				font-size: 0.4em;
+			}
+			.reach {
+				left: 50%;
+				top: -5%;
+				transform: translateX(-50%);
+			}
+			.specificity {
+				left: -34%;
+				top: 50%;
+				transform: translateY(-50%) rotate3d(0, 0, 1, 60deg);
+			}
+			.explicitness {
+				left: 10%;
+				top: 50%;
+				transform: translateY(-150%) rotate3d(0, 0, 1, -60deg);
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>CSS 방법론(Methodologies)</h1>
+					<p>
+						<small>Created by <a href="http://graphytime.github.io/slides/cssMethodology/">조혜은</a></small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2><strong class="hljs-strong" class="emphasize">What</strong> CSS Methodologies?</h2>
+					</section>
+					<section>
+						<P class="hljs-strong"><strong>BEM</strong> , <strong>OOCSS</strong> , <strong>SMACSS</strong> , <strong>Atomic CSS</strong> , <strong>ITCSS</strong></P>
+						<br />
+						<strong class="fragment">Class Naming</strong><br />
+						<strong class="fragment">guidelines on how to write CSS</strong>
+						<br /><br />
+						<div class="fragment">
+							<strong>As Is</strong>
+							<ul>
+								<li><small>간결함: 되도록 짧게</small></li>
+								<li><small>명료함: 스타일과 작동 방식이 드러나게</small></li>
+								<li><small>분명한 말뜻(Semantics): 어떻게 생겼는지가 아니라, 어떤 성격(nature)인지를 설명</small></li>
+								<li><small>포괄성: 대부분의 사이트에서도 적용되도록 ...</small></li>
+							</ul>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2><strong class="hljs-strong">Why</strong> CSS Methodologies?</h2>
+					</section>
+					<section>
+						<p>모듈화, 객체화 되고 있는 대규모 프로젝트 환경에서</p>
+						<br />
+						<ul class="fragment">
+							<li><small>코드의 재사용성 높이고</small></li>
+							<li><small>확장성 높이고</small></li>
+							<li><small>직관적인 네이밍으로 예측 가능성(Semantics) 높여</small></li>
+						</ul>
+						<br /><br />
+						<p class="fragment hljs-strong">유지보수 하기 쉬운 CSS를 만들기 위해</p>
+					</section>
+				</section>
+				<section>
+					<h2>2019 Rankings</h2>
+					<p>
+						<a href="https://2019.stateofcss.com/technologies/methodologies/" target="_blank" title="새 창"><img src="img/rankings.jpg" role="presentation" alt="presentation" style="width: 80%;"></a>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h2>BEM<br />(Block Element Modifier)</h2>
+						<p>CSS 방법론들 중에서 가장 인기있는 방법론</p>
+						<p>재사용할 수 있는 컴포넌트를 쉽게 구현할 수 있는 <br />작명 규칙(Naming Convention) 모음</p>
+						<p>목표는 <strong class="hljs-strong">직관적인 네이밍</strong></p>
+					</section>
+					<section>
+						<h3>naming Convention</h3>
+						<pre>
+							<code class="" data-trim data-line-numbers>
+								.block { ... }
+								.block__element { ... }
+								.block--modifier { ... }
+								.block__element‐‐modifier { ... }
+							</code>
+						</pre>
+						<br />
+						<p><a href="https://blog.sonim1.com/221" target="_blank" title="새 창">디버깅 시간을 절약 할 수있는 CSS 명명 규칙</a></p>
+					</section>
+					<section>
+						<h3>block</h3>
+						<p>독립적인 페이지 구성 요소</p>
+						<p>형태(red, big)가 아닌 <br />목적(menu, button)에 맞게 결정</p>
+						<p><small>ex) header, footer, content, navigation, form, menu , search from , 디자인 블록 ...</small></p>
+					</section>
+					<section>
+						<h3>Element</h3>
+						<p>블록안에서 특정 기능을 담당</p>
+						<p>형태(red, big)가 아닌 <br />목적(item, text, title)에 맞게 결정 </p>
+						<p><small>ex) menu__item, header__title …</small></p>
+					</section>
+					<section>
+						<h3>Modifier</h3>
+						<p>블록이나 요소의 모양(color, size..), <br />상태(disabled, checked..)를 정의한다.</p>
+						<p><small>ex) form__button — disabled ...</small></p>	
+					</section>
+					<section>
+						<strong>Example</strong>
+						<p><a href="https://seesparkbox.com/foundry/bem_by_example" target="_blank" title="새 창">BEM by Example</a></p>
+						<p><a href="https://www.hyundai.com/kr/ko/e" target="_blank" title="새 창">www.hyundai.com</a></p>
+						<p><a href="https://www.hyundai-n.com/" target="_blank" title="새 창">www.hyundai-n.com</a></p>
+					</section>
+					<section>
+						<strong>단점</strong>
+						<p>BEM은 클래스 명이 너무 길다!</p>
+						<p>=> BEM의 효율적 사용? SASS or LESS</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>OOCSS<br />(Object Oriented CSS)</h2>
+						<br />
+						<p>원칙1 : 구조(structure)와 모양(skin)의 분리</p>
+						<p>원칙2 : 콘테이너와 콘텐츠의 분리</p>
+						<p>목표는 <strong class="hljs-strong">코드의 재사용</strong>으로 중복 최소화</p>
+					</section>
+					<section>
+						<h3>naming Convention</h3>
+						<ul>
+							<li>가능한 짧고 간결하게 작성한다.</li>
+							<li>동작과 형태가 예상 가능하도록 명확하게 작성한다.</li>
+							<li>어떻게 생겼는지 보다는 어떤 목적인지 알 수 있도록 의미있게 작성한다.</li>
+							<li>지나치게 구체적 이지 않게 일반적으로 사용가능 하도록 작성한다.</li>
+						</ul>
+					</section>
+					<section>
+							<h3>원칙1 : <br />구조(structure)와 모양(skin)의 분리</h3>
+							<br />
+							<strong class="fragment">structure</strong>
+							<p class="fragment"><small>ex) width, height, margin, padding, overflow ....</small></p>
+							<strong class="fragment">skin</strong>
+							<p class="fragment"><small>ex) color, font, shadows, ....</small></p>
+					</section>
+					<section>
+						<pre>
+							<code class="" data-trim data-line-numbers>
+								.btn {
+									width: 100px;
+									padding: 10px;
+								}									
+								.btn-danger {
+									color: white;
+									background-color: red;
+								}
+							</code>
+							<code class="" data-trim data-line-numbers>
+								<button type="button" class="btn btn-danger">
+									빨간색 버튼
+								</button>
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>원칙2 : 콘테이너(container)와 콘텐츠(content)의 분리</h3>
+						<p>컨테이너란 스타일의 적용 범위를 제한하는 범주이며, 내용물이란 컨테이너로 인해 제한된 스타일의 범주를 말한다고 하는데...?</p>
+						<p class="fragment">계층화된 선택자 사용해서 벗어나 요소를 어디서나 <strong class="hljs-strong">재사용 가능한 객체</strong>로 인식</p>
+						<p class="fragment"><strong class="hljs-strong">=> 재사용 가능한 공통 속성 분리</strong></p>
+					</section>
+					<section>
+						<div class="flex-container">
+							<div class="flex-column">
+								<strong>As Is</strong>
+								<pre>
+									<code class="" data-trim data-line-numbers>
+										article h2 { font-size: 24px;}
+										article h3 { font-size: 20px;}
+										aside h2 { font-size: 20px;}
+										aside h3 { font-size: 16px;}
+										footer h2 { font-size: 16px;}
+										footer h3 { font-size: 14px;}
+									</code>
+									<code class="" data-trim data-line-numbers>
+										<article>
+											<h2>24px 타이틀</h2>
+											<h3>20px 타이틀</h2>
+										</article>
+										<aside>
+											<h2>20px 타이틀</h2>
+											<h3>16px 타이틀</h2>
+										</aside>
+										<footer>
+											<h2>16px 타이틀</h2>
+											<h3>14px 타이틀</h2>
+										</footer>
+									</code>
+								</pre>
+							</div>
+							<div class="flex-column fragment">
+								<strong>To be</strong>
+								<pre>
+									<code class="" data-trim data-line-numbers>
+										.u-h2 { font-size: 24px;}
+										.u-h3 { font-size: 20px;}
+										.u-h4 { font-size: 16px;}
+										.u-h5 { font-size: 14px;}
+									</code>
+									<code class="" data-trim data-line-numbers>
+										<article>
+											<h2 class="u-h2">24px 타이틀</h2>
+											<h3 class="u-h3">20px 타이틀</h2>
+										</article>
+										<aside>
+											<h2 class="u-h3">20px 타이틀</h2>
+											<h3 class="u-h4">16px 타이틀</h2>
+										</aside>
+										<footer>
+											<h1 class="u-h4">16px 타이틀</h1>
+											<h2 class="u-h5">14px 타이틀</h2>
+										</footer>
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section>
+						<pre>
+							<code class="" data-trim data-line-numbers>
+								.header{
+									position: fixed;
+									top: 0;
+								}
+								.footer{
+									position: absolute;
+									bottom: 0;
+								}
+								.common-width{
+									width: 700px;
+									margin: 0;
+								}
+							</code>
+							<code class="" data-trim data-line-numbers>
+								<header class="header common-width">Header</header>
+								<footer class="footer common-width">Footer</footer>
+							</code>
+						</pre>
+					</section>					
+					<section>
+						<strong>단점</strong>
+						<p>다중 클래스 사용으로 가독성이 <br />떨어지고 HTML가 복잡해짐</p>
+						<p>non-semantic한 클래스 사용</p>
+						<p>=> OOCSS도 SASS or LESS와 함께</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>SMACSS<br />(Scalable and Modular Architecture for CSS)</h2>
+						<br />
+						<p>CSS를 위한 확장가능하고 모듈화된 아키텍처</p>
+						<p>기본(base), 레이아웃(layout), 모듈(module), 상태(state), 테마(theme) 다섯가지의 범주를 제시한다.</p>
+						<p>목표는 모듈식 구조로 <strong class="hljs-strong">확장성</strong> 증대</p>
+					</section>
+					<section>
+						<div class="flex-container">
+							<div class="flex-column">
+								<p>SMACSS 범주화(categorization)</p>
+								<ul>
+									<li>
+										<small>Base : 스타일 초기화 (reset.css)</small>
+									</li>
+									<li>
+										<small>layout : 주요 요소(id), 하위 요소(class)로 구분하고 'layout => l-' 접두사를 사용</small>
+									</li>
+									<li>
+										<small>module : 재사용 가능한 구성요소 모듈간 접두사 뒤에 '--' 사용</small>
+									</li>
+									<li>
+										<small>state : 요소의 상태 변화를 표현하고 접두사 사용 'is-'</small>
+									</li>
+									<li>
+										<small>theme : 사용자가 선택 가능 하도록 스타일을 재선언하여 사용</small>
+									</li>
+								</ul>
+							</div>
+							<div class="flex-column">
+								<a href="https://www.slideshare.net/MichaelPosso1/oocss-smacss-or-bem?#27" target="_blank" title="새 창"><img src="img/smass.jpg" role="presentation" alt="presentation" style="width: 80%;"></a>
+							</div>
+						</div>
+					</section>
+					<section>
+						<strong>Example</strong>
+						<p><a href="https://www.toptal.com/css/smacss-scalable-modular-architecture-css" target="_blank" title="새 창">Exploring SMACSS</a></p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Atomic CSS<br />(Functional CSS)</h2>
+						<p>"Atomic CSS is the approach to CSS architecture <br />that favors small, single-purpose classes <br />with names based on visual function."</p>
+						<p><small><a href="https://css-tricks.com/lets-define-exactly-atomic-css/" target="_blank" title="새 창">css-tricks.com</a></small></p>
+						<ul>
+							<li>names based on visual function</li>
+							<li>favors small, single-purpose classes</li>
+						</ul>
+					</section>
+					<section>
+						<pre>
+							<code class="" data-trim data-line-numbers>
+								.bg-a {
+									background-color: #a6d5fa;
+								}
+								.bg-b {
+									background-color: #aedbaf;
+								}
+								.bg-c {
+									background-color: #ffe8a5;
+								}
+								.bg-d {
+									background-color: #faaaa4;
+								}
+								.bc-a{
+									border-color: #2196f3;
+								}
+								.bc-b {
+									border-color: #4caf50;
+								}
+								.bc-c {
+									border-color:  #ffc107;
+								}
+								.bc-d {
+									border-color:  #f44336;
+								}
+								.br-1x {
+									border-radius: 10px;
+								}
+								.bw-2x {
+									border-width: 2px;
+								}
+								.bss {
+									border-style: solid;
+								}
+								.sans {
+									font-style: sans-serif;
+								}
+								.p-1x {
+									padding: 10px;
+								}
+							</code>
+							<code class="" data-trim data-line-numbers>
+								<p class="bw-2 bss p-1x sans br-1x bg-d bc-d">
+									An error occurred.
+								</p>
+							</code>
+						</pre>
+						<small><a href="https://www.sitepoint.com/css-architecture-block-element-modifier-bem-atomic-css/#atomic-css" target="_blank" title="새 창">BEM & Atomic CSS</a></small>
+						<small><a href="https://tailwindcss.com/" target="_blank" title="새 창"><span class="offscreen">Atomic CSS 기반의 대표 프레임워크 </span>tailwind</a></small>
+					</section>
+					<section>
+						<h2>새로운 트렌드 <br />Atomic CSS-in-JS</h2>
+						<p>컴포넌트, 리액트 , css-in-js ...</p>
+						<p><a href="https://d0gf00t.tistory.com/22" target="_blank" title="새 창">css-in-js</a> 
+						<p class="offscreen">css-in-js 목표 : 하나의 컴포넌트에 있는 CSS가 다른 컴포넌트에 영향을 미치지 않도록 하는 캠슐화 된 컴포넌트</p>
+						<p><a href="https://velog.io/@gtah2yk/Atomic-CSS-in-JS-%EA%B8%80-%EC%A0%95%EB%A6%AC" target="_blank" title="새 창">Atomic CSS-in-JS</a></p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>ITCSS<br />(Inverted Triangle CSS)</h2>
+						<p><a href="https://twitter.com/csswizardry" target="_blank" title="새 창">Harry Roberts</a>가 만든 CSS 아키텍처</p>
+						<p>reach, specificity, explicitness 기준으로 그룹화</p>
+						<small>sass 같은 전처리기 사용 base</small>
+					</section>
+					<section data-background="#ddd">
+						<h3>ITCSS Architecture 7Layer & Key Metrics</h3>
+						<div class="flex-container">
+							<div class="flex-column itcss-diagram">
+								<figure>
+									<img src="https://cdn-images-1.medium.com/max/800/1*RfxbLlVnVwaH11Fs9tVAzQ.png" alt="Picture of ITCC Triangle">
+									<figcaption><small><a href="https://codepen.io/hidanielle/post/css-methodologies-naming-conventions-and-file-structures#itcss-38" target="_blank" title="새 창">Inverted Triangle CSS: Scalable and maintainable</a></small></figcaption>
+								</figure>
+								<p class="reach itcss-key fragment"><strong class="offscreen">reach :</strong>페이지에 영향을 미치는 범위</p>
+								<p class="specificity itcss-key fragment"><strong class="offscreen">specificity :</strong>낮은 특이성에서 높은 특이성으로</p>
+								<p class="explicitness itcss-key fragment"><strong class="offscreen">explicitness :</strong>일반화로 시작하여 (구체적이고) 명확하게</p>
+							</div>
+							<div class="flex-column">
+								<ul>
+									<li class="fragment">
+										<small class="x-small">Settings : (전처리기) Global variables, config switches. (ex: base, font, color ...)</small>
+									</li>
+									<li class="fragment">
+										<small class="x-small">Tools : (전처리기) Default mixins and functions. (일반적으로 클래스의 속성을 작성/확장하는데 도움을 주는 전처리 함수)</small>
+									</li>
+									<li class="fragment">
+										<small class="x-small">Generic : 실제로 CSS를 생성하는 첫 번째 레이어, <span class="offscreen">스타일, 상자 크기 정의 등을 재설정, 정규화하는</span> Ground-zero styles (ex: reset.css, normalize.css)</small>
+									</li>
+									<li class="fragment">
+										<small class="x-small">Base(Elements) : Unclassed HTML elements (like H1, A, etc.) (type selectors)</small>
+									</li>
+									<li class="fragment">
+										<small class="x-small">Objects (네임스페이스: o-) : Cosmetic-free design patterns. 객체 클래스에 아이템 정렬 같은 디자인 패턴에 사용 </small>
+									</li>
+									<li class="fragment">
+										<small class="x-small">Components (네임스페이스: c-) : Designed components, chunks of UI <span class="offscreen">(UI 구성 요소에 대한 스타일 규칙)</span>. 독립적인 components (ex: button, dialog ...)</small>
+									</li>
+									<li class="fragment">
+										<small class="x-small">Trumps : Helpers and overrides. 기존 규칙을 조정하고 재정의하는 유틸리티 및 도우미 클래스 (!important) </small>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<br />
+						<p><small><a href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/" target="_blank" title="새 창">itcss-scalable-maintainable-css-architecture</a></small></p>
+						<p><small><a href="https://d0gf00t.tistory.com/20" target="_blank" title="새 창">itcss 9 layer</a></small></p>
+					</section>
+				</section>
+				<section>
+					<h2>마치며</h2>
+					<p><span class="offscreen">SEM &amp; BIO : 방법론은 단독 사용이 아닌 필요에 따라 </span>Mix & Match</p>
+					<p>완성형이 아닌 진행형 <span class="offscreen">: 아직 많은 테스트가 필요하며 떄로는 이해하고 싶지 않은 방식도 있지만 새로운 방법론은 항상 나올 수 있다.</span></p>
+					<p><span class="offscreen">모든 방법론을 섭렵할 순 없지만 </span> 목적을 되새기며 <br />흐름을 파악해 보았습니다.</p>
+					<br />
+					<p>감사합니다.</p>
+				</section>
+				<section>
+					<section>
+						<h3>참조문서 (1/3)</h3>
+						<ul>
+							<li><small><a href="https://acss.io/" target="_blank" title="새 창">https://acss.io/</a></small></li>
+							<li><small><a href="https://csswizardry.com/" target="_blank" title="새 창">https://csswizardry.com/</a></small></li>
+							<li><small><a href="https://en.bem.info/methodology/css/" target="_blank" title="새 창">https://en.bem.info/methodology/css/</a></small></li>
+							<li><small><a href="http://oocss.org/" target="_blank" title="새 창">http://oocss.org/</a></small></li>
+							<li><small><a href="http://smacss.com/" target="_blank" title="새 창">http://smacss.com/</a></small></li>
+							<li><small><a href="https://twitter.com/csswizardry" target="_blank" title="새 창">https://twitter.com/csswizardry</a></small></li>
+							<li><small><a href="https://2019.stateofcss.com/technologies/methodologies/" target="_blank" title="새 창">https://2019.stateofcss.com/technologies/methodologies/</a></small></li>
+							<li><small><a href="https://blog.sonim1.com/221" target="_blank" title="새 창">https://blog.sonim1.com/221</a></small></li>
+							<li><small><a href="https://d0gf00t.tistory.com/20" target="_blank" title="새 창">https://d0gf00t.tistory.com/20</a></small></li>
+							<li><small><a href="https://medium.com/@erwinousy/css-%EA%B0%9C%EC%84%A0%EC%9D%84-%EC%9C%84%ED%95%9C-10%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95-9923b106661c" target="_blank" title="새 창">https://medium.com/@erwinousy/css-%EA%B0%9C%EC%84%A0%EC%9D%84-%EC%9C%84%ED%95%9C-10%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95-9923b106661c</a></small></li>
+						</ul>
+					</section>
+					<section>
+						<h3>참조문서 (2/3)</h3>
+						<ul>
+							<li><small><a href="https://medium.com/@jinminkim_50502/css-bem-smacss-oocss-9e4d6beb0a38" target="_blank" title="새 창">https://medium.com/@jinminkim_50502/css-bem-smacss-oocss-9e4d6beb0a38</a></small></li>
+							<li><small><a href="https://medium.com/@mahmutmese86/what-is-smacss-110f678c14f" target="_blank" title="새 창">https://medium.com/@mahmutmese86/what-is-smacss-110f678c14f</a></small></li>
+							<li><small><a href="https://medium.com/witinweb/css-%EB%B0%A9%EB%B2%95%EB%A1%A0-1-bem-block-element-modifier-1c03034e65a1" target="_blank" title="새 창">https://medium.com/witinweb/css-%EB%B0%A9%EB%B2%95%EB%A1%A0-1-bem-block-element-modifier-1c03034e65a1</a></small></li>
+							<li><small><a href="https://medium.com/witinweb/css-%EB%B0%A9%EB%B2%95%EB%A1%A0-2-oocss-object-oriented-css-4064e1119354" target="_blank" title="새 창">https://medium.com/witinweb/css-%EB%B0%A9%EB%B2%95%EB%A1%A0-2-oocss-object-oriented-css-4064e1119354</a></small></li>
+							<li><small><a href="https://velog.io/@gtah2yk/Atomic-CSS-in-JS-%EA%B8%80-%EC%A0%95%EB%A6%AC" target="_blank" title="새 창">https://velog.io/@gtah2yk/Atomic-CSS-in-JS-%EA%B8%80-%EC%A0%95%EB%A6%AC</a></small></li>
+							<li><small><a href="https://velog.io/@pyo-dev/CSS-%EB%B0%A9%EB%B2%95%EB%A1%A0" target="_blank" title="새 창">https://velog.io/@pyo-dev/CSS-%EB%B0%A9%EB%B2%95%EB%A1%A0</a></small></li>
+							<li><small><a href="https://www.sitepoint.com/css-architecture-block-element-modifier-bem-atomic-css" target="_blank" title="새 창">https://www.sitepoint.com/css-architecture-block-element-modifier-bem-atomic-css</a></small></li>
+							<li><small><a href="https://www.slideshare.net/MichaelPosso1/oocss-smacss-or-bem" target="_blank" title="새 창">https://www.slideshare.net/MichaelPosso1/oocss-smacss-or-bem</a></small></li>
+							<li><small><a href="https://www.toptal.com/css/smacss-scalable-modular-architecture-css" target="_blank" title="새 창">https://www.toptal.com/css/smacss-scalable-modular-architecture-css</a></small></li>
+						</ul>
+					</section>
+					<section>
+						<h3>참조문서 (3/3)</h3>
+						<ul>
+							<li><a href="https://www.slideshare.net/wsconf/css-wsconf-seoul-2016" target="_blank" title="새 창">https://www.slideshare.net/wsconf/css-wsconf-seoul-2016</a></li>
+						</ul>
+					</section>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../revealjs/dist/reveal.js"></script>
+		<script src="../revealjs/plugin/zoom/zoom.js"></script>
+		<script src="../revealjs/plugin/notes/notes.js"></script>
+		<script src="../revealjs/plugin/search/search.js"></script>
+		<script src="../revealjs/plugin/markdown/markdown.js"></script>
+		<script src="../revealjs/plugin/highlight/highlight.js"></script>
+		<script>
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
